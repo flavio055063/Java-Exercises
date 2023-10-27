@@ -21,6 +21,7 @@ public class Main {
 		List<Employee> list = new ArrayList<>();
 		
 		for(int i=0; i<quantity; i++) {
+			System.out.printf("### EMPLOYEE %d ###\n", i+1);
 			System.out.printf("%d - Id: ", i+1);
 			final Integer id = sc.nextInt();
 			if(list.stream().anyMatch(p -> p.getId().equals(id))) {
@@ -46,16 +47,21 @@ public class Main {
 			if(sc.nextInt() == 1) {
 				System.out.println("Employee id: ");
 				Integer id = sc.nextInt();
+				boolean found = false;
 				for (Employee employee : list) {
 			        if (employee.getId() == id) {
 			            System.out.println(employee);
-			            System.out.println("Write the raise percentage (0.0 -- 1.0):");
-			            //Double percentage = sc.nextDouble();
+			            System.out.println("Write the raise percentage (0,0 -- 1,0):");
 			            employee.giveRaise(sc.nextDouble());
+			            System.out.println(employee);
+			            found = true;
 			        }
 			    }
+				if(found == false) {
+					System.out.println("Id not found in database.");
+				}
 			}else{
-				System.out.println("Employee name: ");
+				System.out.println("Functionality not operating. ");
 			}
 		}
 		sc.close();
