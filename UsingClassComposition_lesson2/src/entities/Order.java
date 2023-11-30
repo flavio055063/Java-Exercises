@@ -44,6 +44,16 @@ public class Order {
 		this.itens.remove(item);
 	}
 	
+	//calculate total cost from this order
+	public float orderCost(){
+		float total = 0;
+		for(int i=0; i<itens.size(); i++) {
+			total+= itens.get(i).subTotal();
+		}
+		return total;
+	}
+	
+	
 	//getters and setters
 	public Client getClient() {
 		return client;

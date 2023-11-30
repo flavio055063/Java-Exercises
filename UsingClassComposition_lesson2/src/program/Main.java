@@ -47,6 +47,8 @@ public class Main {
 		
 		orderList.add(new Order(flavio, orderItens));
 		System.out.println(orderList);
+		
+		System.out.println("The cost of the second order is: " + orderList.get(1).orderCost());
 	}
 
 }
