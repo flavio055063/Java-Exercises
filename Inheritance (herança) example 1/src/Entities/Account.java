@@ -9,13 +9,18 @@ public class Account {
 	public Account() {
 	}
 
+	@Override
+	public String toString() {
+		return "Account [number=" + number + ", holder=" + holder + ", balance=" + balance + "]";
+	}
+
 	public Account(Integer number, String holder, Double balance) {
 		this.number = number;
 		this.holder = holder;
 		this.balance = balance;
 	}
 
-	// withdraw money from this account. Return true if successful
+	// Withdraw money from this account. Return true if successful
 	public boolean withdraw(Double value) {
 		if (this.balance > value && value > 0) {
 			this.balance -= value;

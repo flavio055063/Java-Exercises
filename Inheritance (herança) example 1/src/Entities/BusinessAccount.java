@@ -4,8 +4,9 @@ public class BusinessAccount extends Account {
 	private Double loanLimit = 0.0;
 
 	// constructors
-	public BusinessAccount() {
+	public BusinessAccount(Double loanLimit) {
 		super();
+		this.loanLimit = loanLimit;
 	}
 
 	public BusinessAccount(Integer number, String holder, Double balance, Double loanLimit) {
@@ -13,8 +14,16 @@ public class BusinessAccount extends Account {
 		this.loanLimit = loanLimit;
 	}
 
+	@Override
+	public String toString() {
+		return "BusinessAccount [loanLimit=" + loanLimit + ", " + super.toString() + "]";
+	}
+
+	//loan a amount of money
 	public void loan(Double amount) {
 		if (amount <= this.loanLimit) {
+			//would need to change private do protected in Account.java
+			//to change the value of balance directly here
 			this.deposit(amount);
 		}
 	}
